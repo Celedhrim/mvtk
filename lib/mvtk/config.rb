@@ -19,7 +19,7 @@ module Mvtk
     puts "Conf file created : #{conffilepath}"
     puts "Edit to fit your need then run again"
     #Add exit
-    #exit
+    exit
   end
 
   # Read the config
