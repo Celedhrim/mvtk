@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+require "mvtk"
+require "rbconfig"
+
+#no design for windows
+is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/)
+if is_windows then
+  puts "Sorry not design for windows"
+  exit 1
+end
+
+CONFFILE="/tmp/test.conf"
+conffile = File.expand_path(CONFFILE)
+
+#Load config file
+$conf = Mvtk.confread(conffile)
+
+Mvtk.confcheck
+
+#doing stuff with config
+$conf["source"] = $conf["source"].chomp("/")
+$conf["target"] = $conf["target"].chomp("/")
+
+mchoice = ""
+process_hash = {}
+until mchoice == "proceed" do
+  mchoice = Mvtk.mediamenu
+  exit if mchoice == "quit"
+  next if mchoice == "proceed"
+  schoice = ""
+  schoice = Mvtk.choosescrap(mchoice)
+  process_hash[mchoice] = schoice
+end
+
+puts ""
+puts "-"*80
+puts "Processing #{process_hash.length} file(s)"
+
+counter = 0
+process_hash.each do |source, destination|
+  puts ""
+  Mvtk.copy(source, destination)
+  counter = counter + 1
+  remain = process_hash.length - counter
+  if remain != 0 then
+    puts ""
+    puts "Done ! #{remain} in queue"
+  end
+end
+
+puts "All done , exit ..."
