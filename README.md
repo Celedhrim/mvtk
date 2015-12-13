@@ -1,36 +1,38 @@
 # Mvtk
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mvtk`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem install a command `mvtk`, it's not a gem you can use in your software.
 
-TODO: Delete this and the text above, and describe your gem
+The goal is simple: take crappy movie filename from a directory and name them the good way for kodi mediacenter using well known scraper.
+
+2 scraper supported at this Time
+
+* [media-passion](http://scraper.media-passion.fr/index2.php?Page=Home)
+* [themoviedb.org](https://www.themoviedb.org/)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mvtk'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install mvtk
+
+Then first launch will create the configuration file in ~/.config/mvtk.conf
+
+## Configuration
+
+Edit  **~/.config/mvtk.conf**
+
+* *scraper* = "themoviedb" or "mediapassion", which scraper you Usage
+* *saga_enable* = enable or not saga subdir
+* *saga_prefix* = a string to prefix saga subdir name (.../terminator/... => .../prefix saganame/...)
+* *source* = source directory to recursively find movie file
+* *target* = directory to copy movie with right name
+* *windows_name* = make created file and folder Microsoft Windows compatible (some characters replace witch _ )
+* *min_movie_time* = Minimum number of minutes to determine if the video file is a movie or a tvshow
+
+
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+just launch `mvtk`
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mvtk.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/Celedhrim/mvtk.
