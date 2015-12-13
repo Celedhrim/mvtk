@@ -34,7 +34,7 @@ Edit  **~/.config/mvtk.conf**
 just launch `mvtk` , then choose a file , choose the matching movie , do this how many times needed , then procced to copy. Quit will quit without action
 If nothing found automatically , trry manual search to choose search terms
 
-![Mvtk git](https://github.com/Celedhrim/mvtk/screen/mvtk.gif)
+![Mvtk git](https://github.com/Celedhrim/mvtk/blob/master/screen/mvtk.gif)
 
 ## Contributing
 
