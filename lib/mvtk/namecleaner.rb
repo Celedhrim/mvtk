@@ -82,7 +82,7 @@ module Mvtk
         { :name => "DTS", :modifier => Regexp::IGNORECASE },
         { :name => "truefrench", :modifier => Regexp::IGNORECASE },
         { :name => "french", :modifier => Regexp::IGNORECASE },
-        { :name => "www.cpasbien.io", :modifier => Regexp::IGNORECASE }
+        { :name => "www.cpasbien.cm", :modifier => Regexp::IGNORECASE }
       ]
     end
 
