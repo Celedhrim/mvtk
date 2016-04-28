@@ -1,5 +1,6 @@
 require 'ruby-progressbar'
 require 'filesize'
+require 'pathname'
 
 module Mvtk
 
@@ -9,6 +10,9 @@ module Mvtk
   end
 
   def self.fulldest(source, destination)
+    if destination.nil?
+        return nil
+    end
     movie_file = "#{destination.split('/')[0][0..-8]}#{File.extname(source)}"
     movie_file = "#{destination.split('/')[0]}#{File.extname(source)}" if $conf["year_in_filename"]
     movie_file = self.winname(movie_file) if $conf["windows_name"]
@@ -50,6 +54,9 @@ module Mvtk
 
   def self.copy(source, destination)
     finalpath = self.fulldest(source, destination)
+    if finalpath.nil?
+      return
+    end
     puts "Source => #{File::basename(source)}"
     puts "Target => #{finalpath.sub($conf["target"]+"/","")}"
     puts "Size   => #{Filesize.from(File.size(source).to_s + "B").pretty}"
@@ -57,5 +64,24 @@ module Mvtk
 
     FileUtils.mkdir_p File.dirname(finalpath) unless File.directory?(File.dirname(finalpath))
     self.copy_progressbar(source, finalpath)
+  end
+
+  def self.move(source, destination)
+      finalpath = self.fulldest(source, destination)
+      if finalpath.nil?
+          return
+      end
+      finaldir = finalpath.split('/')[0..-2].join('/')
+      sourcedir = File.dirname(source)
+
+      FileUtils.mkdir_p finaldir
+      FileUtils.mv(source, finalpath)
+
+      todelete = Pathname.new(sourcedir).cleanpath
+      sourcefiles = Pathname.new($conf["source"]).cleanpath
+
+      unless todelete == sourcefiles
+        FileUtils.rm_rf(todelete)
+      end
   end
 end
