@@ -10,6 +10,7 @@ module Mvtk
 
   def self.fulldest(source, destination)
     movie_file = "#{destination.split('/')[0][0..-8]}#{File.extname(source)}"
+    movie_file = "#{destination.split('/')[0]}#{File.extname(source)}" if $conf["year_in_filename"]
     movie_file = self.winname(movie_file) if $conf["windows_name"]
     movie_dir = destination.split('/')[0]
     movie_dir = self.winname(movie_dir) if $conf["windows_name"]
