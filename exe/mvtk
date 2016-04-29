@@ -39,7 +39,11 @@ puts "Processing #{process_hash.length} file(s)"
 counter = 0
 process_hash.each do |source, destination|
   puts ""
-  Mvtk.copy(source, destination)
+  if $conf["move_files"]
+    Mvtk.move(source, destination)
+  else
+    Mvtk.copy(source, destination)
+  end
   counter = counter + 1
   remain = process_hash.length - counter
   if remain != 0 then
