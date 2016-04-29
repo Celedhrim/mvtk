@@ -27,7 +27,7 @@ Edit  **~/.config/mvtk.conf**
 * *windows_name* = make created file and folder Microsoft Windows compatible (some characters replace witch _ )
 * *min_movie_time* = Minimum number of minutes to determine if the video file is a movie or a tvshow
 * *year_in_filename* = Allows you to have the year in the filename e.g. "Up (2009)/Up (2009).mkv"
-
+* *move_files* = If set true , move instead copy files
 
 
 ## Usage

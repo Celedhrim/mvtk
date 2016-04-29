@@ -13,6 +13,8 @@ module Mvtk
         mvtk.option("target","/home/data/Videos/Films")
         mvtk.option("windows_name","true")
         mvtk.option("min_movie_time","60")
+        mvtk.option("year_in_filename","false")
+        mvtk.option("move_files","false")
       end
     end
     doc.save(conffilepath)
