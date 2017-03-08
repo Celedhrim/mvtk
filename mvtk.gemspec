@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "iniparse", ">= 1.4.1"
   spec.add_dependency "nokogiri", ">= 1.6.6.4"
-  spec.add_dependency "tty-prompt", ">= 0.2.0"
+  spec.add_dependency "tty-prompt", ">= 0.11.0"
   spec.add_dependency "ruby-progressbar", ">= 1.7.5"
   spec.add_dependency "filesize", "~> 0.1.1"
   spec.add_dependency "streamio-ffmpeg", ">= 1.0"

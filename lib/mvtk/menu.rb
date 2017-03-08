@@ -6,7 +6,9 @@ module Mvtk
   def self.mediamenu
     prompt = TTY::Prompt.new
     choices = self.listfiles
-    choice = prompt.select("Movie to copy ?", choices)
+    choice = prompt.select("Movie to copy ?", per_page: 25) do |menu|
+      choices.each {|key, value| menu.choice key, value }
+    end
   end
 
   def self.listfiles
@@ -48,7 +50,10 @@ module Mvtk
     foutput.push("[Manual] (Do a manual search)")
     foutput.push("[Return] (Back to file menu)")
     prompt2 = TTY::Prompt.new
-    choice = prompt2.select("Your choice ?", foutput)
+    choice = prompt2.select("Your choice ?", per_page: 15) do |menu|
+      foutput.each {|key| menu.choice key }
+    end
+
     if choice == "[Manual] (Do a manual search)" then
       return self.manualscrap
     end
