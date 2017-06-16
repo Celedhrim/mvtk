@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "ruby-progressbar", ">= 1.7.5"
   spec.add_dependency "filesize", "~> 0.1.1"
   spec.add_dependency "streamio-ffmpeg", ">= 1.0"
+  spec.add_dependency "themoviedb-api", ">= 1.2.0"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"

@@ -6,7 +6,7 @@ module Mvtk
   def self.confcreate (conffilepath)
     doc = IniParse.gen do |doc|
       doc.section("mvtk") do |mvtk|
-        mvtk.option("scraper","mpdb")
+        mvtk.option("scraper","tmdb")
         mvtk.option("saga_enable","true")
         mvtk.option("saga_prefix","1-Saga")
         mvtk.option("source","/home/torrent/finish.seedbox")
@@ -15,6 +15,8 @@ module Mvtk
         mvtk.option("min_movie_time","60")
         mvtk.option("year_in_filename","false")
         mvtk.option("move_files","false")
+        mvtk.option("tmdb_key","YOUR_KEY")
+        mvtk.option("tmdb_lang","en")
       end
     end
     doc.save(conffilepath)
